@@ -33,8 +33,8 @@ const testFilter = function(list,func,expectedOutput){
   assert.deepEqual(filter(func,list),expectedOutput);
 }
 
-const testReduce = function(list,func,expectedOutput){
-  assert.deepEqual(reduce(func,list),expectedOutput);
+const testReduce = function(list,func,expectedOutput,accumulator){
+  assert.deepEqual(reduce(func,list,accumulator),expectedOutput);
 }
 
 testMap([1,2,3,4],generateSquare,[1,4,9,16]);
@@ -44,4 +44,4 @@ testFilter([1,2,3,4],isEven,[2,4]);
 testFilter([],isEven,[]);
 testFilter([-1],isEven,[]);
 testReduce([1,2,3],max,3);
-testReduce([],max,undefined);
+testReduce([],max,5,5);
