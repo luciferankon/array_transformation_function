@@ -1,15 +1,15 @@
 let assert = require("assert");
 let {
   map
-} = require("../map.js");
+} = require("../src/map.js");
 
 let {
   filter
-} = require("../filter.js");
+} = require("../src/filter.js");
 
 let {
   reduce
-} = require("../reduce.js");
+} = require("../src/reduce.js");
 
 //---------util functions-----------//
 const generateSquare = function(number){
