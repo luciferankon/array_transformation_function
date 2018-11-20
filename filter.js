@@ -1,4 +1,4 @@
-exports.filter = function(list,func){
+exports.filter = function(func,list){
   let result = [];
   for(let index=0; index<list.length; index++){
     if(func(list[index])){
