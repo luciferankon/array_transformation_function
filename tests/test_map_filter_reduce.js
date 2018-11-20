@@ -26,4 +26,8 @@ const testFilter = function(list,func,expectedOutput){
 }
 
 testMap([1,2,3,4],generateSquare,[1,4,9,16]);
+testMap([],generateSquare,[]);
+testMap([-1],generateSquare,[1]);
 testFilter([1,2,3,4],isEven,[2,4]);
+testFilter([],isEven,[]);
+testFilter([-1],isEven,[]);
