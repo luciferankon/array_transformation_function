@@ -1,7 +1,7 @@
-exports.filter = function(func,list){
+exports.filter = function(predicate,list){
   let result = [];
   for(let index=0; index<list.length; index++){
-    if(func(list[index])){
+    if(predicate(list[index])){
       result.push(list[index]);
     }
   }

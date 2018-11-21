@@ -20,34 +20,49 @@ const max = function(number1,number2){
 //----------------------------------//
 
 describe('map',function(){
-  it('should work for function generateSquare',function(){
+
+  it('should preserve the length of the array',function(){
     assert.deepEqual(map(generateSquare,[1,2,3,4]),[1,4,9,16]);
   });
-  it('should work for empty array',function(){
+
+  it('should return empty array for empty array',function(){
     assert.deepEqual(map(generateSquare,[]),[]);
   });
-  it('should work for negative number',function(){
+
+  it('should return array of length 1 for array of length 1',function(){
     assert.deepEqual(map(generateSquare,[-1]),[1]);
   });
 });
 
 describe('filter',function(){
-  it('should work for function isEven',function(){
+
+  it('should return the filtered array for multiple elements array',function(){
     assert.deepEqual(filter(isEven,[1,2,3,4]),[2,4]);
   });
-  it('should work for negative numbers also',function(){
+
+  it('should return an empty array for an one element array for which predicate is returning false',function(){
     assert.deepEqual(filter(isEven,[-1]),[]);
   });
-  it('should work for undefined also',function(){
-    assert.deepEqual(filter(isEven,[undefined]),[]);
+
+  it('should return an one element  array for an one element array for which predicate is returning true',function(){
+    assert.deepEqual(filter(isEven,[2]),[2]);
+  });
+
+  it('should return empty array for empty array',function(){
+    assert.deepEqual(filter(isEven,[]),[]);
   });
 });
 
 describe('reduce',function(){
-  it('should work for function max',function(){
+  it('should return undefined for empty array and without initializer',function(){
+    assert.deepEqual(reduce(max,[]),undefined);
+  });
+
+  it('should return value after running reducer on the array without initializer',function(){
     assert.deepEqual(reduce(max,[1,2,3]),3);
   });
-  it('should work for initial value', function(){
+  it('should return value after running reducer on the array with initializer', function(){
     assert.deepEqual(reduce(max,[],5),5);
+    assert.deepEqual(reduce(max,[5,2],1),5);
   });
 });

@@ -1,10 +1,10 @@
-exports.reduce = function(func,list,accumulator){
-  if(accumulator==undefined){
-    accumulator = list[0];
-  }
+exports.reduce = function(reducer,list,accumulator){
+  let startingIndex = +isNaN(accumulator);
+  let obj = [accumulator,list[0]];
+  accumulator = obj[startingIndex];
   let result = accumulator;
-  for(let index = 1; index<list.length; index++){
-    result = func(result,list[index]);
+  for(let index = startingIndex; index<list.length; index++){
+    result = reducer(result,list[index]);
   }
   return result;
 }
