@@ -1,7 +1,10 @@
-exports.map = function(mapper,list){
-  let result = [];
-  for(let index = 0; index<list.length; index++){
-    result.push(mapper(list[index]));
+const map = function(mapper,list){
+  if(list.length==0){
+    return [];
   }
-  return result;
+  let result = list.pop();
+  let res = map(mapper,list);
+  res.push(mapper(result));
+  return res;
 };
+exports.map = map;
