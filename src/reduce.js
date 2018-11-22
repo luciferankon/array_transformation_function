@@ -1,12 +1,8 @@
-exports.reduce = function(func,list,accumulator){
-  let startingIndex = 0;
-  if(accumulator==undefined){
-    accumulator = list[0];
-    startingIndex = 1;
+const reduce = function(func,list,accumulator=list.pop()){
+  if(list.length == 1 || (list.length == 0 && accumulator==undefined)){
+    return list[0];
   }
-  let result = accumulator;
-  for(let index = startingIndex; index<list.length; index++){
-    result = func(result,list[index]);
-  }
-  return result;
+  let res = reduce(func,list,list.pop());
+  return func(accumulator,res);
 }
+exports.reduce = reduce;
